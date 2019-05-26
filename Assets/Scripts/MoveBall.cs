@@ -15,8 +15,7 @@ public class MoveBall : MonoBehaviour
     void Awake ()
     {
         ball = this.gameObject;
-        ball.transform.position = GetBallPosition(0);
-        
+        ball.transform.position = GetBallPosition(0);      
     }
 
     void Update()
@@ -61,6 +60,16 @@ public class MoveBall : MonoBehaviour
         isStarted = false;
         currentPositionNumber = 0;
 
-     }      
+     }
+
+     public void SetVelocity(float v)
+     {
+         this.velocity = v;
+     }
+
+     public float GetVelocity()
+     {
+         return velocity;
+     }
     
 }

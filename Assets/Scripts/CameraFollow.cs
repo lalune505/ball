@@ -7,8 +7,15 @@ public class CameraFollow : MonoBehaviour
     private float smoothTime = 2.5f;
     private Vector3 velocity = Vector3.zero;
     //public Vector3 offset;
-    
-   
+
+    void Start()
+    {
+        Vector3 targetPosition = target.TransformPoint(new Vector3(2, 1, -4));
+
+        transform.position = targetPosition;
+        
+        transform.LookAt(target);
+    }
     void LateUpdate()
     {
         /*Vector3 targetPosition = target.position + offset;
