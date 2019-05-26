@@ -23,7 +23,7 @@ public class SpeedController : MonoBehaviour
     
     public void ValueChangeCheck()
     {
-        ballMovement.SetVelocity(slider.value * 60f);
+        ballMovement.SetVelocity(slider.value * 100f);
     }
     
 }

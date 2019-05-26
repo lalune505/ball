@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
@@ -8,14 +9,15 @@ public class MoveBall : MonoBehaviour
     public TransformData ballTrajectory;
     private GameObject ball;
     private int currentPositionNumber = 0;
-    private float velocity = 60f;
+    private float velocity = 0f;
     private float passed = 0;
     private bool isStarted = false;
+    
     
     void Awake ()
     {
         ball = this.gameObject;
-        ball.transform.position = GetBallPosition(0);      
+        ball.transform.position = GetBallPosition(0); 
     }
 
     void Update()
@@ -25,7 +27,7 @@ public class MoveBall : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if(isStarted == false) 
+                if(isStarted == false && velocity != 0f) 
                     StartCoroutine(BallMovement());
             }
         }
@@ -51,9 +53,9 @@ public class MoveBall : MonoBehaviour
                 currentPositionNumber++;
                 passed = 0;
                 ball.transform.Translate(GetBallPosition(currentPositionNumber) - GetBallPosition(currentPositionNumber - 1));
-                //Debug.Log(ball.transform.position);
+                Debug.Log(Time.deltaTime);
             }
-            
+
             yield return null;
         }
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    private float smoothTime = 2.5f;
+    public float smoothTime = 3f;
     private Vector3 velocity = Vector3.zero;
     //public Vector3 offset;
 
@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = targetPosition;//smoothedPosition;
             
-        transform.LookAt(target); */
+        transform.LookAt(target);*/ 
         
         Vector3 targetPosition = target.TransformPoint(new Vector3(2, 1, -4));
 
