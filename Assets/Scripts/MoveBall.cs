@@ -12,14 +12,18 @@ public class MoveBall : MonoBehaviour
     private float velocity = 0f;
     private float passed = 0;
     private bool isStarted = false;
+    public LineRenderer lineRenderer;
+    private int segmentCount = 1;
+    private Vector3 startPoint;
+   
     
     
     void Awake ()
     {
         ball = this.gameObject;
-        ball.transform.position = GetBallPosition(0); 
+        ball.transform.position = GetPathPosition(0);
     }
-
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0)){ 
@@ -33,16 +37,22 @@ public class MoveBall : MonoBehaviour
         }
 
     }
-    private Vector3 GetBallPosition(int currentPositionNumber)
+    private Vector3 GetPathPosition(int currentPositionNumber)
     {
         return new Vector3(ballTrajectory.item.x[currentPositionNumber],
             ballTrajectory.item.y[currentPositionNumber],
             ballTrajectory.item.z[currentPositionNumber]);
     }  
 
+    private Vector3 GetBallPosition()
+    {
+        return ball.transform.position;
+    }  
+    
      IEnumerator BallMovement()
      {
         isStarted = true;
+        SetCurrentStartPoint(ball.transform.position);
         
         while (currentPositionNumber < ballTrajectory.item.x.Length - 1)
         {
@@ -52,8 +62,9 @@ public class MoveBall : MonoBehaviour
             {
                 currentPositionNumber++;
                 passed = 0;
-                ball.transform.Translate(GetBallPosition(currentPositionNumber) - GetBallPosition(currentPositionNumber - 1));
-                Debug.Log(Time.deltaTime);
+                ball.transform.Translate(GetPathPosition(currentPositionNumber) - GetPathPosition(currentPositionNumber - 1));
+                segmentCount++;
+                DrawLine(segmentCount);
             }
 
             yield return null;
@@ -73,5 +84,15 @@ public class MoveBall : MonoBehaviour
      {
          return velocity;
      }
-    
+
+     private void DrawLine(int n)
+     {    
+         lineRenderer.SetVertexCount(segmentCount);
+         lineRenderer.SetPosition(segmentCount - 1, GetBallPosition());
+     }
+
+     private void SetCurrentStartPoint(Vector3 point)
+     {
+         this.startPoint = point;
+     }
 }
