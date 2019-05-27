@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        Vector3 targetPosition = target.TransformPoint(new Vector3(2, 1, -4));
+        Vector3 targetPosition = target.TransformPoint(new Vector3(2, 1, -3));
 
         transform.position = targetPosition;
         
@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour
             
         transform.LookAt(target);*/ 
         
-        Vector3 targetPosition = target.TransformPoint(new Vector3(2, 1, -4));
+        Vector3 targetPosition = target.TransformPoint(new Vector3(2, 1, -3));
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         
