@@ -22,7 +22,8 @@ public class MoveBall : MonoBehaviour
     void Start()
     {
         ball.transform.position = GetPathPosition(0);
-        SetCurrentStartPoint(ball.transform.position);
+        SetCurrentStartPoint(GetPathPosition(0));
+        DrawLine(segmentCount);
     }   
     private Vector3 GetPathPosition(int currentPositionNumber)
     {

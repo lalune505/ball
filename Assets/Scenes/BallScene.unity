@@ -294,7 +294,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 297306430}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1362753175}
+        m_MethodName: OnNextButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &297306430
@@ -536,7 +547,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519369263}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1362753175}
+        m_MethodName: OnPrevButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &519369263
@@ -621,9 +643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4795a5d39ac74b799dd222e5469208b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballTrajectory: {fileID: 11400000, guid: 5829af50b85f64fa79688f02d196186d, type: 2}
+  ballTrajectory: {fileID: 11400000, guid: e4e02d758ec17458ca73477188463a45, type: 2}
   ball: {fileID: 542584245}
-  lineRenderer: {fileID: 440732065}
+  lineRenderer: {fileID: 1086215812}
 --- !u!23 &542584248
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -964,9 +986,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4795a5d39ac74b799dd222e5469208b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballTrajectory: {fileID: 11400000, guid: 5829af50b85f64fa79688f02d196186d, type: 2}
+  ballTrajectory: {fileID: 11400000, guid: 092f9af87a49f4ae5b2f7ac3829cd8da, type: 2}
   ball: {fileID: 1042297487}
-  lineRenderer: {fileID: 440732065}
+  lineRenderer: {fileID: 1703517848}
 --- !u!23 &1042297490
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1197,9 +1219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4795a5d39ac74b799dd222e5469208b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballTrajectory: {fileID: 11400000, guid: 5829af50b85f64fa79688f02d196186d, type: 2}
+  ballTrajectory: {fileID: 11400000, guid: c6167c26f1c844c87a3f45c839850bc7, type: 2}
   ball: {fileID: 1270309324}
-  lineRenderer: {fileID: 440732065}
+  lineRenderer: {fileID: 573706559}
 --- !u!23 &1270309327
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1273,6 +1295,7 @@ GameObject:
   - component: {fileID: 1362753171}
   - component: {fileID: 1362753170}
   - component: {fileID: 1362753174}
+  - component: {fileID: 1362753175}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1374,6 +1397,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballMovement: {fileID: 7169274790133882826}
+--- !u!114 &1362753175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362753169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec28c09f741c4544af518765d88a16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balls:
+  - {fileID: 7169274790133882825}
+  - {fileID: 542584245}
+  - {fileID: 1270309324}
+  - {fileID: 1042297487}
 --- !u!1 &1575206568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,8 +1521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 7163236161535805859}
   smoothTime: 3
-  LookAtTarget: 0
-  RotateAroundTarget: 1
+  LookAtTarget: 1
+  RotateAroundTarget: 0
   RotationSpeed: 5
 --- !u!81 &1578769365
 AudioListener:
