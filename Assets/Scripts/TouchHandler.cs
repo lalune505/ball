@@ -46,13 +46,13 @@ public class TouchHandler : MonoBehaviour
 
     private void SingleClick()
     {    
-        Debug.Log("single");
+        //Debug.Log("single");
         ballMovement.StartMovement();     
     }
 
     private void DoubleClick()
     {
-        Debug.Log("double");
+        //Debug.Log("double");
         ballMovement.Reset();
     } 
     
