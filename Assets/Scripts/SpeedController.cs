@@ -7,14 +7,12 @@ public class SpeedController : MonoBehaviour
 {
 
     public Slider slider;
-    private MoveBall ballMovement;
+    public MoveBall ballMovement;
     void Start()
     {
         slider.minValue = 0f;
         slider.maxValue = 1f;
         slider.onValueChanged.AddListener(delegate {ValueChangeCheck(); });
-
-        ballMovement = FindObjectOfType<MoveBall>();
     }
     void Update()
     {

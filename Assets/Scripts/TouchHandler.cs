@@ -5,10 +5,9 @@ using UnityEngine;
 public class TouchHandler : MonoBehaviour
 {
     private float doubleClickTimeLimit = 0.25f;
-    private MoveBall ballMovement;
+    public MoveBall ballMovement;
     protected void Start()
     {
-        ballMovement = FindObjectOfType<MoveBall>();
         StartCoroutine(InputListener());
     }
 
@@ -46,12 +45,14 @@ public class TouchHandler : MonoBehaviour
     }
 
     private void SingleClick()
-    {                        
+    {    
+        Debug.Log("single");
         ballMovement.StartMovement();     
     }
 
     private void DoubleClick()
     {
+        Debug.Log("double");
         ballMovement.Reset();
     } 
     

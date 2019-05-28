@@ -12,7 +12,7 @@ public class MoveBall : MonoBehaviour
     private int currentPositionNumber = 0;
     private float velocity = 0f;
     private float passed = 0;
-    private bool isStarted = false;
+    private bool isStarted;
     public LineRenderer lineRenderer;
     private int segmentCount = 1;
     private int newSegmentCount = 0;
@@ -84,12 +84,7 @@ public class MoveBall : MonoBehaviour
      public void Reset()
      {
          StopMovement();
-         ball.transform.position = startPoint;
-         currentPositionNumber = 0;
-         segmentCount -= newSegmentCount;
-         newSegmentCount = 0;
-         lineRenderer.SetVertexCount(segmentCount);
-
+         ResetPosition();
      }
      public void StartMovement()
      {
@@ -107,4 +102,23 @@ public class MoveBall : MonoBehaviour
              isStarted = false;
          }
      }
+
+     private void ResetPosition()
+     {
+         if (GetBallPosition().x <= startPoint.x && GetBallPosition().x > GetPathPosition(0).x)
+         {
+             ball.transform.position = GetBallPosition() - GetPathPosition(ballTrajectory.item.x.Length - 1);
+             segmentCount -= ballTrajectory.item.x.Length - 1;
+         }
+         else if (GetBallPosition().x > startPoint.x)
+         {
+             ball.transform.position = startPoint;
+             currentPositionNumber = 0;
+             segmentCount -= newSegmentCount;
+         }
+         
+         newSegmentCount = 0;
+         lineRenderer.SetVertexCount(segmentCount);
+     }
+
 }
